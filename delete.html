@@ -1,0 +1,63 @@
+<!DOCTYPE html >
+<html>
+<head>
+	<meta charset="UTF-8">
+
+	<style>
+		table, th , td  {border: 1px solid grey; border-collapse: collapse; padding: 5pt;}
+	</style>
+
+	<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+	<script src= "delete.js"></script>
+
+</head>
+
+<body ng-app="dltRecipe" ng-controller="dltController">
+
+	<h1>Recipe Collection</h1>
+	<hr>
+	<h2>Delete Recipe</h2>
+
+	
+	<form >
+		<label>Enter id:  </label><input type="text" ng-model="id"></input>
+		<button type="display" ng-click="display()"> Display </button><br>
+		<hr>
+
+
+		<table>
+			<tr >
+				<td>id:</td>
+				<td> <label ng-model="id">  </label></input></td>
+			</tr>
+			<tr>
+				<td> <label>Name:  </label> </td>
+				<td> <input type="text"  ng-model="name"></input> </td>
+			</tr>
+			<tr>
+				<td> <label>Serves:  </label> </td>
+				<td> <input type="text" ng-model="serves"></input> </td>
+			</tr>
+			<tr>
+				<td> <label>Ingredients:  </label> </td>
+				<td> <input type="text" ng-model="ingredients"></input> </td>
+			</tr>
+			<tr>
+				<td> <label>Remarks:  </label> </td>
+				<td> <input type="text" ng-model="remarks"></input> </td>
+			</tr>
+		</table>
+	</br>
+	<label>Steps:  </label>
+	<textarea ng-model="steps" cols="80" rows="5" ></textarea><br><br>
+
+	<button type="submit" ng-click="delete()"> Submit Delete </button>
+
+	<a href="main.html"><button type="button">Return to Main Page</button></a> <br>
+
+</form>
+
+
+</body>
+</html>
+

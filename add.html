@@ -1,0 +1,29 @@
+<!DOCTYPE html >
+<html>
+<head>
+	<meta charset="UTF-8">
+
+	<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+	<script src= "add.js"></script>
+
+</head>
+
+<body ng-app="addRecipe" ng-controller="addController">
+	<h1>Recipe Collection</h1>
+	<hr>
+	<h2>Add Recipe</h2>
+
+	<form ng-submit="add()">
+		<label>ID: <input type="text" pattern="[0-9]+" ng-model="id"></input></label><br><br>
+		<label>Name: <input type="text" pattern="[a-zA-z ]+" ng-model="name"></input></label><br><br>
+		<label>Serves: <input type="text" ng-model="serves"></input></label><br><br>
+		<label>Ingredients: <input type="text" ng-model="ingredients"></input></label><br><br>
+		<label>Steps:</br>
+		<textarea ng-model="steps" cols="80" rows="5" ></textarea></label><br><br>
+		<label>Remarks: <input type="text" ng-model="remarks"></input></label><br><br>
+		<button type="submit"> Submit </button>
+		<a href="main.html"><button type="button">Cancel/Return to Main Page</button></a>
+		</form>
+
+	</body>
+	</html>

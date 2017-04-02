@@ -1,0 +1,52 @@
+<!DOCTYPE html >
+<html>
+<head>
+	<meta charset="UTF-8">
+
+	<style>
+		table, th , td  {border: 1px solid grey; border-collapse: collapse; padding: 5pt;}
+		table tr:nth-child(odd)	{background-color: #f1f1f1;}
+		table tr:nth-child(even) {background-color: #ffffff;}
+	</style>
+
+	<!-- OR: Keep  local copy of angular.min.js and use it instead -->
+	<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+	<script src= "list.js"></script>
+
+</head>
+
+<body ng-app="myApp" ng-controller="myController" ng-init="display()">
+
+	<h1>Recipe Collection</h1>
+	<hr>
+	<h2>List All Recipes</h2>
+
+	<table >
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Serves</th>
+			<th>Ingredients</th>
+			<th>Remarks</th>
+		</tr>
+		<tr ng-repeat="r in recipes">
+			<td> {{ r.id }} </td>
+			<td> {{ r.name }} </td>
+			<td> {{ r.serves }} </td>
+			<td> {{ r.ingredients }} </td>
+			<td> {{ r.remarks }} </td>
+		</tr>
+
+	</table>
+</br>
+<label>Sort by Recipe Name : <input type="checkbox" ng-model="master" ng-change="filter()"/></label>
+</br></br>
+<label >Filter By name : <input type="text" ng-model="master"/></label>
+</br></br>
+<a href="main.html"><button>Return to Main Page</button></a>
+</br></br>
+
+
+</body>
+</html>
+

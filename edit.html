@@ -1,0 +1,54 @@
+<!DOCTYPE html >
+<html>
+<head>
+	<meta charset="UTF-8">
+
+	<style>
+		table, th , td  {border: 1px solid grey; border-collapse: collapse; padding: 5pt;}
+		table tr:nth-child(odd)	{background-color: #f1f1f1;}
+		table tr:nth-child(even) {background-color: #ffffff;}
+	</style>
+
+	<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+	<script src= "edit.js"></script>
+	<!--use css for br and hr-->
+</head>
+
+<body ng-app="recipeEdit" ng-controller="editController">
+
+	<h1>Recipe Collection</h1>
+	<hr>
+	<h2>Edit Recipe</h2>
+
+	<form >
+		<label>Enter id of edited recipe:  </label>
+		<input type="text" ng-model="id"></input>
+		<br></br>
+		<button name="display" value="display" ng-click="display()"> Display </button><br>
+		<table>
+			<tr><td>id:</td><td> <label ng-model="id">  </label></td></tr>
+			<tr><td> <label>Name:  </label> </td><td> <input type="text"  ng-model="name" /> </td></tr>
+			<tr>
+				<td> <label>Serves:  </label> </td>
+				<td> <input type="text" ng-model="serves" /> </td>
+			</tr>
+			<tr>
+				<td> <label>Ingredients:  </label> </td>
+				<td> <input type="text" ng-model="ingredients" /> </td>
+			</tr>
+			<tr>
+				<td> <label>Remarks:  </label> </td>
+				<td> <input type="text" ng-model="remarks" /> </td>
+			</tr>
+		</table>
+	</br>
+	<label>Steps:  </label></br>
+	<textarea ng-model="steps" cols="80" rows="5" ></textarea><br><br>
+
+	<button type="edit" name="edit" value="edit" id="edit" ng-click="edit()"> Submit Edit </button>	
+	<a href="main.html"><button type="button">Return to Main Page</button></a>
+	</form>
+
+</body>
+</html>
+
