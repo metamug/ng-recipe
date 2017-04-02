@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Resource xmlns="http://xml.metamug.net/resource/1.0" v="1.0">
+    <Desc>QC Checklist Task</Desc>
+    <Request method="GET">
+        <Desc>Get all recipes.</Desc>
+        <Query when="$q eq 'all'">
+            SELECT recipe_id as 'id', recipe_name as 'name',
+            recipe_serves as 'serves', recipe_ingr as 'ingredients',
+            recipe_steps as 'steps', recipe_remarks as 'remarks'
+            from tbl_recipe;
+        </Query>
+        <Query when="$q eq 'sort_name'">
+            SELECT recipe_id as 'id', recipe_name as 'name',
+            recipe_serves as 'serves', recipe_ingr as 'ingredients',
+            recipe_steps as 'steps', recipe_remarks as 'remarks'
+            from tbl_recipe order by name;
+        </Query>
+    </Request>
+    <Request method="GET" item="true">
+        <Desc>Get recipe by ID.</Desc>
+        <Query>
+            SELECT recipe_id as recId,recipe_name as recName,
+            recipe_serves as recServes,recipe_ingr as recIngr,
+            recipe_steps as recSteps,recipe_remarks as recRemarks
+            from tbl_recipe where recipe_id = $id;
+        </Query>
+    </Request>
+    <Request method="POST">
+        <Desc>To add recipe</Desc>
+        <Update>
+            insert into tbl_recipe (recipe_id, recipe_name,
+            recipe_serves,recipe_ingr,recipe_steps,recipe_remarks)
+            values ($recId, $recName, $recServes,$recIngr,
+            $recSteps,$recRemarks);
+        </Update>
+    </Request>
+    <Request method="PUT">
+        <Desc>To edit recipee</Desc>
+        <Update>
+            update tbl_recipe
+            set recipe_name = $recName,recipe_serves
+            = $recServes,recipe_ingr = $recIngr,
+            recipe_steps = $recSteps, recipe_remarks =
+            $recRemarks where recipe_id = $recId;
+        </Update>
+    </Request>
+    <Request method="DELETE" item="true">
+        <Desc>To delete recipe.</Desc>
+        <Update>
+            delete from tbl_recipe where recipe_id = $id;
+        </Update>
+    </Request>
+</Resource>
